@@ -8,8 +8,5 @@ catkin_package()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-add_executable(rrt2d src/mp2d.cpp)
+add_executable(mp2d src/mp2d.cpp src/VisualNode.cpp)
 target_link_libraries(mp2d Eigen3::Eigen ompl ${catkin_LIBRARIES})
-
-add_executable(rrt2d src/dmp2d.cpp)
-target_link_libraries(dmp2d Eigen3::Eigen ompl ${catkin_LIBRARIES})
