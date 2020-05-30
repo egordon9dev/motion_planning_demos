@@ -8,5 +8,8 @@ catkin_package()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-add_executable(mp2d src/mp2d.cpp src/VisualNode.cpp)
-target_link_libraries(mp2d Eigen3::Eigen ompl ${catkin_LIBRARIES})
+add_executable(geometric_feasible_2d src/geometric_feasible_2d.cpp src/VisualNode.cpp)
+target_link_libraries(geometric_feasible_2d Eigen3::Eigen ompl ${catkin_LIBRARIES})
+
+add_executable(geometric_optimal_2d src/geometric_optimal_2d.cpp src/VisualNode.cpp)
+target_link_libraries(geometric_optimal_2d Eigen3::Eigen ompl ${catkin_LIBRARIES})

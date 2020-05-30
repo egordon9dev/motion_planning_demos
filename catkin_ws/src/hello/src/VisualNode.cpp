@@ -4,6 +4,7 @@
 
 VisualNode::VisualNode(ros::NodeHandle& nh) {
     path_pub = nh.advertise<visualization_msgs::MarkerArray>("path", 10);
+    start_point.x = start_point.y = goal_point.x = goal_point.y = 0;
 }
 
 void VisualNode::setPath(std::vector<geometry_msgs::Point>&& points) {

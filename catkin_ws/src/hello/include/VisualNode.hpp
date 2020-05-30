@@ -16,6 +16,7 @@ private:
     ros::Publisher path_pub;
 
     std::vector<geometry_msgs::Point> path_points;
+    geometry_msgs::Point start_point, goal_point;
 };
 
 #endif

@@ -1,0 +1,9 @@
+if [ $# == 1 ]
+then
+    . ~/robotics_projects/catkin_ws/devel/setup.bash
+    roscore &
+    rosrun rviz rviz &
+    rosrun hello $1
+else
+    echo "missing parameter ros node"
+fi

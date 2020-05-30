@@ -1,6 +1,18 @@
+/**
+ * Geometric Feasible Motion Planning demo.
+ * can use several planners: og::RRT, og::RRTConnect, og::KPIECE1
+ * runtime is about 500-600 us
+ * 
+ * how to run:
+ *  $ ./hello geometric_feasible_2d
+ * 
+ * */
+
 #include <ompl/base/SpaceInformation.h>
 #include <ompl/base/spaces/SE2StateSpace.h>
 #include <ompl/geometric/planners/rrt/RRTConnect.h>
+#include <ompl/geometric/planners/rrt/RRT.h>
+#include <ompl/geometric/planners/kpiece/KPIECE1.h>
 #include <ompl/geometric/SimpleSetup.h>
 #include <ompl/config.h>
 #include <ros/ros.h>
@@ -63,7 +75,10 @@ int main(int argc, char** argv) {
     VisualNode visual_node(nh);
 
     while (ros::ok()) {
+        ros::Time t0 = ros::Time::now();
         visual_node.setPath(plan());
+        double dt = ros::Duration(ros::Time::now() - t0).toSec();
+        ROS_INFO("planing time: %.6f", dt);
         visual_node.run();
         ros::spinOnce();
         rate.sleep();
